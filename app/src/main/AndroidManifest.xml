@@ -12,6 +12,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA-f5k2ARRnqQBjErD7o1syZ1vfbhTSx7I" />
+
+        <activity android:name=".QRActivity"></activity>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
