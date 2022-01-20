@@ -1,11 +1,13 @@
 package com.example.kickboard;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -13,6 +15,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
@@ -23,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.Theme_KickBoard);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -31,8 +36,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), QRActivity.class);
-                startActivity(intent);
+                new IntentIntegrator(MainActivity.this).initiateScan();
             }
         });
 
@@ -46,23 +50,28 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         map = googleMap;
 
-        LatLng SEOUL = new LatLng(37.56, 126.97);
+        LatLng Ulsan = new LatLng(35.54548703174819, 129.25611263848413);
 
         MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(SEOUL);
-        markerOptions.title("서울");
-        markerOptions.snippet("한국의 수도");
+        markerOptions.position(Ulsan);
+        markerOptions.title("울산대학교");
+        markerOptions.snippet("University of Ulsan");
         map.addMarker(markerOptions);
 
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(Ulsan, 15));
+    }
 
-        // 기존에 사용하던 다음 2줄은 문제가 있습니다.
-
-        // CameraUpdateFactory.zoomTo가 오동작하네요.
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
-        //mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(SEOUL, 10));
-
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result.getContents().equals("DHKickboard")) {
+            Toast.makeText(this, "QR인증이 완료되었습니다.", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getApplicationContext(), DetectorActivity.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "QR인증 다시 해주시길 바랍니다.", Toast.LENGTH_LONG).show();
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
 }

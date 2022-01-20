@@ -1,26 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".DetectorActivity">
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_weight="2"
+        android:fontFamily="@font/font"
+        android:gravity="center"
+        android:text="헬멧 착용 후 인식해주세요"
+        android:textColor="@color/black"
+        android:textSize="30dp" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        app:layout_constraintBottom_toTopOf="@id/detectBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_weight="8"
+        android:src="@drawable/camera" />
 
     <Button
         android:id="@+id/detectBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="탐지"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:layout_weight="1"
+        android:fontFamily="@font/font"
+        android:text="탐지" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

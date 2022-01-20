@@ -1,2 +1,2 @@
-0 head
-1 helmet
+head
+helmet

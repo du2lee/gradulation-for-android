@@ -19,6 +19,7 @@
         android:id="@+id/qrButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/font"
         android:text="QR로 인증하기"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent" />
