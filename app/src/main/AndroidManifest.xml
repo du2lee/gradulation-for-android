@@ -2,20 +2,61 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kickboard">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false"
+        />
+
+    <uses-feature android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature android:name="android.hardware.camera.front" android:required="false" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/icon"
+        android:label="UOU16"
+        android:roundIcon="@mipmap/icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KickBoard">
-        <activity android:name=".MainActivity">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA-f5k2ARRnqQBjErD7o1syZ1vfbhTSx7I" />
+
+        <activity android:name=".TakingActivity"></activity>
+        <activity android:name=".DescActivity"></activity>
+
+        <activity
+            android:name=".StartActivity"
+            android:theme="@style/SplashTheme"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <provider
+            android:authorities="com.example.kickboard"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+
+        </provider>
+        <activity android:name=".DetectorActivity"/>
+        <activity android:name=".MapActivity"/>
+        <activity android:name=".ShareActivity">
+
+        </activity>
+
+    </application>
 </manifest>
