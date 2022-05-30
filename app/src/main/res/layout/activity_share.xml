@@ -16,7 +16,7 @@
         android:layout_weight="2"
         android:fontFamily="@font/font"
         android:gravity="center"
-        android:text="헬멧 착용 인증 완료!"
+        android:text="헬멧 착용 인증이 완료되었습니다"
         android:textColor="@color/black"
         android:textSize="30dp" />
 
@@ -28,22 +28,26 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="390dp"
+        android:layout_height="20dp"
         android:layout_weight="1"
-        android:backgroundTint="#A0CADD"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button"
         android:fontFamily="@font/font"
         android:text="SNS 공유"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="390dp"
+        android:layout_height="20dp"
         android:layout_weight="1"
-        android:backgroundTint="#A0CADD"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button"
         android:fontFamily="@font/font"
-        android:text="다음(건너띄기)"
-        android:textSize="18dp" />
+        android:text="주행 시작"
+        android:textSize="18dp"
+        android:textColor="#fff" />
 
 </LinearLayout>

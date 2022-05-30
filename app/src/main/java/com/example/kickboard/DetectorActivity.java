@@ -97,7 +97,6 @@ public class DetectorActivity extends AppCompatActivity {
     private static final int REQUEST_IMAGE_CAPTURE = 672;
     private String imageFilePath;
     private Uri photoUri;
-    private MediaScanner mMediaScanner;
 
 
     protected void onCreate(Bundle saveInstanceState) {
@@ -108,6 +107,7 @@ public class DetectorActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.imageView);
         btn = (Button) findViewById(R.id.detectBtn);
         id = (TextView) findViewById(R.id.id);
+
 
         //take a picture
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -122,8 +122,6 @@ public class DetectorActivity extends AppCompatActivity {
                 intent.putExtra("camerafacing", "front");
                 intent.putExtra("previous_mode", "front");
                 startActivityForResult(intent, 12);
-///////////////////////카메라
-
             }
         });
 
@@ -237,6 +235,10 @@ public class DetectorActivity extends AppCompatActivity {
                             }
                         });
                         dlg.show();
+                        id.setText("헬멧 착용한 후 화면을 터치해\n 예시와 같이 가까이서 촬영해주세요\n(예시)");
+                        Bitmap draw_bitmap = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.camera);
+                        btn.setVisibility(View.GONE);
+                        imageView.setImageBitmap(draw_bitmap);
                     }
 
                     if (i == 1) {

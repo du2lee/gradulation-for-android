@@ -38,7 +38,7 @@ public class ShareActivity extends AppCompatActivity {
     private static final int REQUEST_IMAGE_CAPTURE = 672;
     private String imageFilePath;
     private Uri photoUri;
-    private MediaScanner mMediaScanner;
+
 
     @Override
     protected void onCreate(Bundle saveInstanceState) {

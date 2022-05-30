@@ -16,7 +16,7 @@
         android:layout_weight="2"
         android:fontFamily="@font/font"
         android:gravity="center"
-        android:text="헬멧 착용 후 화면을 터치해 주세요"
+        android:text="헬멧 착용한 후 화면을 터치해\n예시와 같이 가까이서 촬영해주세요\n\t(예시)"
         android:textColor="@color/black"
         android:textSize="30dp" />
 
@@ -29,12 +29,16 @@
 
     <Button
         android:id="@+id/detectBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="380dp"
+        android:layout_height="23dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
         android:layout_weight="1"
-        android:backgroundTint="#A0CADD"
+        android:background="@drawable/button"
         android:fontFamily="@font/font"
         android:text="헬멧 착용 인증"
+        android:textColor="#fff"
         android:textSize="20dp"
         android:visibility="gone" />
 

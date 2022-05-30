@@ -175,23 +175,32 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="match_parent"
+        android:layout_width="390dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#A0CADD"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/button"
         android:fontFamily="@font/font"
-        android:onClick="onButton3Clicked"
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:onClick="insurance_button"
         android:text="원데이 전동킥보드(PM) 보험"
-        android:textColor="#000000"
+        android:textColor="#fff"
+        android:textSize="18dp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/next_btn"
-        android:layout_width="match_parent"
+        android:layout_width="390dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#A0CADD"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/button"
         android:fontFamily="@font/font"
-        android:onClick="onButton4Clicked"
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:onClick="next_button"
         android:text="다음"
-        android:textColor="#000000"
+        android:textColor="#fff"
+        android:textSize="15dp"
         android:textStyle="bold" />
 </LinearLayout>

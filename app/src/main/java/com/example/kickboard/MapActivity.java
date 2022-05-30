@@ -63,15 +63,13 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        if(result != null) {
-            if (result.getContents().equals("DHKickboard")) {
-                Toast.makeText(this, "QR인증이 완료되었습니다.", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), DetectorActivity.class);
-                startActivity(intent);
-            } else {
-                Toast.makeText(this, "QR인증 다시 해주시길 바랍니다.", Toast.LENGTH_SHORT).show();
-                super.onActivityResult(requestCode, resultCode, data);
-            }
+        if (result.getContents().equals("DHKickboard")) {
+            Toast.makeText(this, "QR인증이 완료되었습니다.", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getApplicationContext(), DetectorActivity.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "QR인증 다시 해주시길 바랍니다.", Toast.LENGTH_LONG).show();
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 

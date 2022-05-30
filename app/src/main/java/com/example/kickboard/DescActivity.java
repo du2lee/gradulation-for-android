@@ -131,11 +131,11 @@ public class DescActivity extends AppCompatActivity {
 
         violation2_text.setText(violation2_spannableString);
     }
-    public void onButton3Clicked(View view){
+    public void insurance_button(View view){
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://m.educar.co.kr/honeQ/product/kickboard/kickboardIntro?origin=m"));
         startActivity(intent);
     }
-    public void onButton4Clicked(View view){
+    public void next_button(View view){
         Intent intent = new Intent(getApplicationContext(), MapActivity.class);
         startActivity(intent);
     }
