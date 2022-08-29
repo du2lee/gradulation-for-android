@@ -26,13 +26,11 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA-f5k2ARRnqQBjErD7o1syZ1vfbhTSx7I" />
-
-        <activity android:name=".TakingActivity"></activity>
-        <activity android:name=".DescActivity"></activity>
-
         <activity
-            android:name=".StartActivity"
-            android:theme="@style/SplashTheme"
+            android:name=".view.BillActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.UsageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,6 +38,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".view.TakingActivity"></activity>
 
         <provider
             android:authorities="com.example.kickboard"
@@ -52,11 +52,8 @@
                 android:resource="@xml/file_paths" />
 
         </provider>
-        <activity android:name=".DetectorActivity"/>
-        <activity android:name=".MapActivity"/>
-        <activity android:name=".ShareActivity">
-
-        </activity>
+        <activity android:name=".view.DetectorActivity"/>
+        <activity android:name=".view.MapActivity"/>
 
     </application>
 </manifest>
